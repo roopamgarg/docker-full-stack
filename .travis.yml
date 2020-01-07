@@ -1,0 +1,23 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t roopam527/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+    -  docker run -e CI=true roopam527/react-test npm run test
+
+
+after_success:
+    - docker build -t roopam527/client ./client
+    - docker build -t roopam527/nginx ./nginx
+    - docker build -t roopam527/server ./server
+    - docker build -t roopam527/worker ./worker
+ 
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+    - docker push roopam527/client
+    - docker push roopam527/nginx
+    - docker push roopam527/server
+    - docker push roopam527/worker
