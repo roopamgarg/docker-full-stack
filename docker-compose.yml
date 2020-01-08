@@ -13,7 +13,7 @@ services:
             - '4000:80'
     api:
         build:
-            dockerfile: Docker file.dev
+            dockerfile: Dockerfile.dev
             context: ./server
         volumes:
             - /app/node_modules
