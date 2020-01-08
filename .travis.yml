@@ -10,7 +10,7 @@ script:
 
 
 after_success:
-    - docker build -t roopam5278/multi-client ./client
+    - docker build -t roopam527/multi-client ./client
     - docker build -t roopam527/nginx ./nginx
     - docker build -t roopam527/server ./server
     - docker build -t roopam527/worker ./worker
