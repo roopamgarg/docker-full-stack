@@ -17,7 +17,7 @@ after_success:
  
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-    - docker push roopam527/multi-client
     - docker push roopam527/nginx
     - docker push roopam527/server
     - docker push roopam527/worker
+    - docker push roopam527/multi-client
