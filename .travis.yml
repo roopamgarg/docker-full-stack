@@ -14,7 +14,8 @@ after_success:
     - docker build -t roopam527/nginx ./nginx
     - docker build -t roopam527/server ./server
     - docker build -t roopam527/worker ./worker
- 
+
+    
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
     - docker push roopam527/nginx
